@@ -20,6 +20,10 @@
     "utf-8",
     "latin1"
     ],
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/AdelMahjoub/str-encode"
+  },
   "author": "Adel Mahjoub",
   "license": "MIT"
 }
