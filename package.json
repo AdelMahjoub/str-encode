@@ -1,6 +1,6 @@
 {
   "name": "str-encode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "encode a string to different characters encodings",
   "main": "str-encode.js",
   "scripts": {
