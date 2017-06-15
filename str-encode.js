@@ -1,18 +1,11 @@
 const util = require('util');
 
-const encodings = [
-  'ascii',
-  'base64',
-  'binary',
-  'hex',
-  'ucs2',
-  'ucs-2',
-  'utf16le',
-  'utf-16le',
-  'utf8',
-  'utf-8',
-  'latin1'
-]
+const encode = function(str, encoding) {
+  if(!Buffer.isEncoding(encoding.toString())) {
+    throw Error(util.format("cannot encode to", encoding));
+  }
+  return Buffer.from(str.toString()).toString(encoding);
+}
 
 /**
  * 
@@ -20,10 +13,10 @@ const encodings = [
  * @param { encoding output} encoding 
  */
 const strEncode = function(str, encoding) {
-  if(!encodings.find(known => encoding === known)) {
-    throw Error(util.format("cannot encode to", encoding));
+  if(process.argv[2] && process.argv[3]) {
+    return encode(process.argv[2], process.argv[3]);
   }
-  return Buffer.from(str.toString()).toString(encoding);
+  return encode(str, encoding);
 }
 
 module.exports = strEncode;
