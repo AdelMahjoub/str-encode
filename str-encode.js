@@ -1,11 +1,5 @@
 const util = require('util');
-
-const encode = function(str, encoding) {
-  if(!Buffer.isEncoding(encoding.toString())) {
-    throw Error(util.format("cannot encode to", encoding));
-  }
-  return Buffer.from(str.toString()).toString(encoding);
-}
+const buffer = require('buffer');
 
 /**
  * 
@@ -13,10 +7,10 @@ const encode = function(str, encoding) {
  * @param { encoding output} encoding 
  */
 const strEncode = function(str, encoding) {
-  if(process.argv[2] && process.argv[3]) {
-    return encode(process.argv[2], process.argv[3]);
+  if(!Buffer.isEncoding(encoding.toString())) {
+    throw Error(util.format("cannot encode to", encoding));
   }
-  return encode(str, encoding);
+  return Buffer.from(str.toString()).toString(encoding);
 }
 
 module.exports = strEncode;
