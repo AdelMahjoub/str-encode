@@ -2,7 +2,7 @@
 
 ## Install
 
-`& nom install --save str-encode`
+`$ npm install --save str-encode`
 
 ## Require
 
